@@ -54,8 +54,6 @@ const PlannerProvider = ({ children }) => {
     const payload = {
       ...entry,
       date: parseDate(entry.date),
-      // title: titleText,
-      // content: contentText,
     };
     dispatch({ type: 'create', payload });
     return payload;
