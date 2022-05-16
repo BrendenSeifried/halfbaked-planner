@@ -5,6 +5,7 @@ import Entry from './views/Entry';
 
 import './App.css';
 import { PlannerProvider } from './context/PlannerContext';
+import EditPage from './components/Planner/EditPage';
 
 export default function App() {
   return (
@@ -13,6 +14,9 @@ export default function App() {
         <Header />
         <BrowserRouter>
           <Switch>
+            <Route path="/entries/:id/edit">
+              <EditPage />
+            </Route>
             <Route path="/entries/:id">
               <Entry />
             </Route>
