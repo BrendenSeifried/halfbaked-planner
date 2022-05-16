@@ -13,6 +13,7 @@ export default function Entry({ id, title, date }) {
       <li>
         {title} <span className={styles.date}>{relativeDate}</span>
       </li>
+      {/* <button>edit</button> */}
     </Link>
   );
 }

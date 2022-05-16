@@ -58,6 +58,11 @@ const PlannerProvider = ({ children }) => {
     dispatch({ type: 'create', payload });
     return payload;
   };
+  // const editEntry = (edit) => {
+  //   const payload = { ...entry, title: titleText, content: contentText };
+  //   dispatch({ type: 'update', payload });
+  //   return payload;
+  // };
 
   const getEntry = (id) => {
     return entries.find((note) => note.id === Number(id));
