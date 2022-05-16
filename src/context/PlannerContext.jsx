@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
 import { parseDate } from '../utils/parseDate';
 
 // payload is an entry object:
@@ -25,6 +31,8 @@ export const PlannerContext = createContext();
 
 const PlannerProvider = ({ children }) => {
   const [entries, dispatch] = useReducer(entriesReducer, []);
+  const [titleText, setTitleText] = useState('');
+  const [contentText, setContentText] = useState('');
 
   useEffect(() => {
     // Note that 'entries' below would likely be an API request in practice
@@ -46,6 +54,8 @@ const PlannerProvider = ({ children }) => {
     const payload = {
       ...entry,
       date: parseDate(entry.date),
+      // title: titleText,
+      // content: contentText,
     };
     dispatch({ type: 'create', payload });
     return payload;
