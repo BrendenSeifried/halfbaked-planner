@@ -17,7 +17,7 @@ export default function Entry({ id, title, date }) {
           {title} <span className={styles.date}>{relativeDate}</span>
         </li>
       </Link>
-      <button onClick={() => deleteEntry(id)}>delete</button>
+      <div onClick={() => deleteEntry(id)}>delete</div>
     </>
   );
 }

@@ -24,9 +24,6 @@ export default function Entry() {
         <p>Due: {entry?.date}</p>
         <p>{entry?.content}</p>
       </article>
-      <Link to={`/endtries/${id}/edit`}>
-        <button>edit2</button>
-      </Link>
     </>
   );
 }
