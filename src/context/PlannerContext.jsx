@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react';
 import { parseDate } from '../utils/parseDate';
 
 // payload is an entry object:
@@ -25,6 +31,8 @@ export const PlannerContext = createContext();
 
 const PlannerProvider = ({ children }) => {
   const [entries, dispatch] = useReducer(entriesReducer, []);
+  // const [titleText, setTitleText] = useState('');
+  // const [contentText, setContentText] = useState('');
 
   useEffect(() => {
     // Note that 'entries' below would likely be an API request in practice
@@ -50,6 +58,16 @@ const PlannerProvider = ({ children }) => {
     dispatch({ type: 'create', payload });
     return payload;
   };
+  // const editEntry = (edit) => {
+  //   const payload = { ...entry, title: titleText, content: contentText };
+  //   dispatch({ type: 'update', payload });
+  //   entry;
+  //   return payload;
+  // };
+
+  const deleteEntry = (id) => {
+    dispatch({ type: 'delete', payload: { id } });
+  };
 
   const getEntry = (id) => {
     return entries.find((note) => note.id === Number(id));
@@ -61,6 +79,7 @@ const PlannerProvider = ({ children }) => {
         entries,
         addEntry,
         getEntry,
+        deleteEntry,
       }}
     >
       {children}
